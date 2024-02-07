@@ -1,0 +1,23 @@
+{
+    "debug.internalConsoleOptions": "neverOpen",
+    "git.enableSmartCommit": true,
+    "git.autofetch": true,
+    "git.confirmSync": false,
+    "redhat.telemetry.enabled": false,
+    "workbench.editor.wrapTabs": true,
+    "terminal.integrated.defaultProfile.windows": "Git Bash",
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true,
+    "[xml]": {
+        "editor.defaultFormatter": "redhat.vscode-xml"
+    },
+    "typescript.tsdk": "node_modules\\typescript\\lib",
+    "editor.codeActionsOnSave": {
+        "source.organizeImports": "explicit"
+    },
+    "[javascript]": {
+        "editor.codeActionsOnSave": {
+            "source.organizeImports": "never"
+        }
+    }
+}

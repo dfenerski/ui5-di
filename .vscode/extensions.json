@@ -1,0 +1,17 @@
+{
+    "recommendations": [
+        "dbaeumer.vscode-eslint",
+        "eamodio.gitlens",
+        "EditorConfig.EditorConfig",
+        "esbenp.prettier-vscode",
+        "GitHub.copilot",
+        "Gruntfuggly.todo-tree",
+        "nrwl.angular-console",
+        "redhat.vscode-xml",
+        "redhat.vscode-yaml",
+        "ritwickdey.LiveServer",
+        "yoavbls.pretty-ts-errors",
+        "firsttris.vscode-jest-runner"
+    ],
+    "unwantedRecommendations": []
+}

@@ -1,0 +1,22 @@
+{
+    "compilerOptions": {
+        "target": "es2022",
+        "module": "es2022",
+        "moduleResolution": "node",
+        "skipLibCheck": true,
+        "strict": true,
+        "strictPropertyInitialization": false,
+        "forceConsistentCasingInFileNames": true,
+        "experimentalDecorators": true,
+        "emitDecoratorMetadata": true,
+        "verbatimModuleSyntax": true,
+        "rootDir": "./webapp",
+        "types": ["@openui5/types", "@types/qunit"],
+        "paths": {
+            "com/github/dfenerski/infinite_velocity/*": ["./webapp/*"],
+            "unit/*": ["./webapp/test/unit/*"],
+            "integration/*": ["./webapp/test/integration/*"]
+        }
+    },
+    "include": ["./webapp/**/*"]
+}

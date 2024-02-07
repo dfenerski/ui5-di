@@ -1,0 +1,39 @@
+<mvc:View
+    controllerName="com.github.dfenerski.infinite_velocity.controller.Main"
+    displayBlock="true"
+    xmlns="sap.m"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:core="sap.ui.core"
+>
+    <Page
+        id="page"
+    >
+        <customHeader>
+            <Toolbar>
+                <ToolbarSpacer />
+                <Title text="{i18n>appTitle}" />
+                <ToolbarSpacer />
+            </Toolbar>
+        </customHeader>
+        <content>
+            <VBox
+                renderType="Bare"
+                height="100%"
+                justifyContent="Center"
+                alignItems="Center"
+            >
+                <Text text="Model Instance 1 clicks: {app1>/clickCount}" />
+                <Text text="Model Instance 2 clicks: {app2>/clickCount}" />
+                <HBox renderType="Bare" class="sapUiSmallMarginTop">
+                    <Button class="sapUiTinyMargin" text="Invoke Test 1" press="showResult1" />
+                    <Button class="sapUiTinyMargin" text="Invoke Test 2" press="showResult2" />
+                    <Button class="sapUiTinyMargin" text="Invoke Test 3" press="showResult3" />
+                    <Button class="sapUiTinyMargin" text="Invoke Test 4" press="showResult4" />
+                    <Button class="sapUiTinyMargin" text="Invoke Test 5" press="showResult5" />
+                    <Button class="sapUiTinyMargin" text="Invoke Test 6" press="showResult6" />
+                </HBox>
+            </VBox>
+        </content>
+    </Page>
+
+</mvc:View>

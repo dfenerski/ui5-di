@@ -1,0 +1,8 @@
+.sapMPageBgStandard {
+    background: url(../assets//iv.webp) no-repeat center center local;
+    background-size: cover;
+}
+
+.sapMPageBgStandard > section {
+    backdrop-filter: blur(2px);
+}
