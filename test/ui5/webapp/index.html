@@ -50,5 +50,29 @@
             data-sap-ui-component
             data-name="com.github.dfenerski.infinite_velocity"
         ></div>
+        <script>
+            sap.ui.loader.config({
+                map: {
+                    '*': {
+                        'reflect-metadata':
+                            'iv_modules/reflect-metadata/Reflect',
+                        'reflect-metadata/lite':
+                            'iv_modules/reflect-metadata/ReflectLite',
+                    },
+                },
+                shim: {
+                    'iv_modules/reflect-metadata/Reflect': {
+                        amd: true,
+                        deps: [],
+                        exports: 'Reflect',
+                    },
+                    'iv_modules/reflect-metadata/ReflectLite': {
+                        amd: true,
+                        deps: [],
+                        exports: 'Reflect',
+                    },
+                },
+            });
+        </script>
     </body>
 </html>

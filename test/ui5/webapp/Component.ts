@@ -1,25 +1,10 @@
 import UIComponent from 'sap/ui/core/UIComponent';
-
-sap.ui.loader.config({
-    map: {
-        '*': {
-            'reflect-metadata': 'iv_modules/reflect-metadata/Reflect',
-            'reflect-metadata/lite': 'iv_modules/reflect-metadata/ReflectLite',
-        },
-    },
-    shim: {
-        'iv_modules/reflect-metadata/Reflect': {
-            amd: true,
-            deps: [],
-            exports: 'Reflect',
-        },
-        'iv_modules/reflect-metadata/ReflectLite': {
-            amd: true,
-            deps: [],
-            exports: 'Reflect',
-        },
-    },
-});
+import { AppStateFactory } from './modules/app-state/AppState.factory';
+import {
+    APP_INSTANCE_1,
+    APP_INSTANCE_2,
+} from './modules/app-state/AppState.service';
+import { settle } from './modules/ui5-di/Injector';
 
 /**
  * @namespace com.github.dfenerski.infinite_velocity
@@ -31,6 +16,23 @@ export default class Component extends UIComponent {
 
     public constructor() {
         super('com.github.dfenerski.infinite_velocity.Component');
+        //
+        settle(APP_INSTANCE_1, () =>
+            AppStateFactory.createAppStateService({
+                modelName: 'app1',
+                data: {
+                    invoiceId: 'INV-1',
+                },
+            }),
+        );
+        settle(APP_INSTANCE_2, () =>
+            AppStateFactory.createAppStateService({
+                modelName: 'app2',
+                data: {
+                    invoiceId: 'INV-2',
+                },
+            }),
+        );
     }
 
     public init(): void {
