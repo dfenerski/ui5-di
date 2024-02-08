@@ -61,10 +61,18 @@ class Injector {
         const precedence = ReflectUtil.getPrecedence(dependencyClass);
         //
         if (this._container.has(injectionToken)) {
-            const { precedence: extistingPrecedence } =
-                this._container.get(injectionToken);
-            //
+            const {
+                dependencyClass,
+                dependencyInstance,
+                precedence: extistingPrecedence,
+            } = this._container.get(injectionToken);
+            const isFactoryOnly = ReflectUtil.getIsFactoryOnly(dependencyClass);
+            // Abort if existing precedence is higher
             if (extistingPrecedence > precedence) {
+                return;
+            }
+            // Abort if factory only dependency has already been settled
+            else if (isFactoryOnly && dependencyInstance) {
                 return;
             }
         }
