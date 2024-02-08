@@ -132,6 +132,7 @@ class Injector {
                   ...resolvedNestedDependencyInstances,
               );
         // Save settled instance
+        // TODO: update dependency proxy? its stuck pointing to the dehydrated wraplet. Maybe useful for lazy settle?
         this._container.set(injectionToken, {
             dependencyClass,
             dependencyInstance: resolvedDependencyInstance,
