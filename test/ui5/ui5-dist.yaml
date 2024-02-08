@@ -1,15 +1,15 @@
-specVersion: "3.0"
+specVersion: '3.0'
 metadata:
-  name: com.github.dfenerski.infinite_velocity
+    name: com.github.dfenerski.infinite_velocity
 type: application
 resources:
-  configuration:
-    paths:
-      webapp: dist
+    configuration:
+        paths:
+            webapp: dist
 framework:
-  name: OpenUI5
-  version: "1.120.6"
-  libraries:
-    - name: sap.m
-    - name: sap.ui.core
-    - name: themelib_sap_horizon
+    name: OpenUI5
+    version: '1.120.6'
+    libraries:
+        - name: sap.m
+        - name: sap.ui.core
+        - name: themelib_sap_horizon
