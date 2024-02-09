@@ -10,7 +10,7 @@
         "build:ui5": "ui5 build --exclude-task=minify --clean-dest --all",
         "build:dev": "ui5 build --exclude-task=* --include-task=ui5-tooling-transpile-task",
         "build:clean": "ui5 build --clean-dest",
-        "build:opt": "ui5 build --config ui5-opt.yaml --clean-dest --all",
+        "build:opt": "ui5 build self-contained --config ui5-opt.yaml --clean-dest --all",
         "build:opt:dbg": "ui5 build --config ui5-opt.yaml --exclude-task=* --include-task=ui5-task-preserve-di-tokens",
         "start": "ui5 serve --port 8080 -o index.html",
         "start-cdn": "ui5 serve --port 8080 -o index-cdn.html",
