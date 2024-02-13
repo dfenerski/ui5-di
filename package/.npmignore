@@ -1,0 +1,6 @@
+.eslintrc.js
+.yo-rc.json
+karma-ci-cov.conf.js
+karma-ci.conf.js
+karma.conf.js
+node_modules
