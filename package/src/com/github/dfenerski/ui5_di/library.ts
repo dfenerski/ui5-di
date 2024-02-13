@@ -7,6 +7,7 @@ sap.ui.loader.config({
             'reflect-metadata': 'ui5-di/reflect-metadata/Reflect',
             'reflect-metadata/lite': 'ui5-di/reflect-metadata/ReflectLite',
             'ui5-di': 'com/github/dfenerski/ui5_di/Injector',
+            'ui5-di/injector-util': 'com/github/dfenerski/ui5_di/injector-util',
         },
     },
     shim: {
