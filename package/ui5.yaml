@@ -48,4 +48,4 @@ type: task
 metadata:
     name: ui5-task-preserve-di-tokens
 task:
-    path: ../task/index.js
+    path: ./task/index.js
