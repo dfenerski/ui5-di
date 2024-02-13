@@ -1,5 +1,5 @@
 import MessageBox from 'sap/m/MessageBox';
-import { settle } from 'ui5-di';
+import { settle, settleLazy } from 'ui5-di';
 import { AppStateConsumerService } from '../modules/app-state-consumer/AppStateConsumer.service';
 import {
     APP_INSTANCE_1,
@@ -9,7 +9,9 @@ import {
 import '../modules/concrete-foo/Foo.service';
 import { ExplicitConsumerService } from '../modules/explicit-consumer/ExplicitConsumer.service';
 import { FooConsumerService } from '../modules/foo-consumer/FooConsumer.service';
+import { LazyUtilService } from '../modules/lazy-util/LazyUtil.service';
 import { MessageService } from '../modules/message/Message.service';
+import { UtilABConsumerService } from '../modules/util-ab-consumer/Util1Consumer.service';
 import BaseController from './BaseController';
 
 /**
@@ -22,6 +24,17 @@ export default class Main extends BaseController {
     private readonly appStateConsumerService = settle(AppStateConsumerService);
     private readonly appModel1 = settle<AppStateService>(APP_INSTANCE_1);
     private readonly appModel2 = settle<AppStateService>(APP_INSTANCE_2);
+    private readonly utilABConsumer = settleLazy(UtilABConsumerService);
+
+    public override onInit(): void {
+        const [lazyUtilService, cb] = settleLazy(LazyUtilService);
+        setInterval(() => {
+            console.error('Lazy service:', lazyUtilService.getUtilMessage?.());
+        }, 1000);
+        setTimeout(() => {
+            cb();
+        }, 6500);
+    }
 
     public showResult1(): void {
         MessageBox.show(this.messageService.getMessage());
@@ -49,5 +62,9 @@ export default class Main extends BaseController {
 
     public showResult6(): void {
         this.appModel2.incrementClickCount();
+    }
+
+    public showResult7(): void {
+        MessageBox.show(this.utilABConsumer[1]().getConsumerMessage());
     }
 }

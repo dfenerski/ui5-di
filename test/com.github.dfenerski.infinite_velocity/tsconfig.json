@@ -17,6 +17,9 @@
             "ui5-di": [
                 "./node_modules/ui5-di/src/com/github/dfenerski/ui5_di/Injector"
             ],
+            "ui5-di/injector-util/*": [
+                "./node_modules/ui5-di/src/com/github/dfenerski/ui5_di/injector-util/*"
+            ],
             "unit/*": ["./webapp/test/unit/*"],
             "integration/*": ["./webapp/test/integration/*"]
         }
