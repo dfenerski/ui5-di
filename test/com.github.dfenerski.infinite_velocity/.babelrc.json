@@ -1,0 +1,22 @@
+{
+    "ignore": ["**/*.d.ts"],
+    "plugins": [
+        [
+            "@babel/plugin-transform-typescript",
+            {
+                "onlyRemoveTypeImports": true
+            }
+        ],
+        "babel-plugin-transform-typescript-metadata",
+        ["@babel/plugin-proposal-decorators", { "legacy": true }]
+    ],
+    "presets": [
+        [
+            "transform-ui5",
+            {
+                "onlyMoveClassPropsUsingThis": true
+            }
+        ],
+        ["@babel/preset-typescript", {}]
+    ]
+}

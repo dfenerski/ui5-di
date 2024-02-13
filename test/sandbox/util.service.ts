@@ -1,4 +1,4 @@
-import { Injectable } from '../../src/Injector';
+import { Injectable } from './ui5-di/Injector';
 import { UtilHelperService } from './util-helper.service';
 
 @Injectable()

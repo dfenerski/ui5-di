@@ -1,6 +1,6 @@
-import { dumpContainerInfo, settle } from '../../src/Injector';
 import { BusinessService } from './business.service';
 import './foo.service';
+import { dumpContainerInfo, settle } from './ui5-di/Injector';
 
 dumpContainerInfo();
 

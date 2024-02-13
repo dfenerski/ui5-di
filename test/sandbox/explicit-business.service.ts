@@ -1,5 +1,5 @@
-import { Inject, Injectable } from '../../src/Injector';
 import { ExplicitService } from './explicit.service';
+import { Inject, Injectable } from './ui5-di/Injector';
 
 @Injectable()
 export class ExplicitBusinessService {

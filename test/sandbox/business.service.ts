@@ -1,6 +1,6 @@
-import { Inject, Injectable } from '../../src/Injector';
 import { FooService } from './abstract-foo.service';
 import { ExplicitService } from './explicit.service';
+import { Inject, Injectable } from './ui5-di/Injector';
 import { UtilService } from './util.service';
 
 @Injectable()

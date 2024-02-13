@@ -1,6 +1,6 @@
-import { Injectable } from './ui5-di/Injector';
+import { Injectable } from 'ui5-di';
 
-@Injectable('SVC:EXPLICIT')
+@Injectable('SVC:ExplicitService')
 export class ExplicitService {
     public getExplicitMessage(): string {
         return 'Explicit message';

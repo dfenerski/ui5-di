@@ -1,5 +1,5 @@
-import { dumpContainerInfo, settle } from '../../src/Injector';
 import { ExplicitService } from './explicit.service';
+import { dumpContainerInfo, settle } from './ui5-di/Injector';
 
 const explicitService = settle(ExplicitService);
 

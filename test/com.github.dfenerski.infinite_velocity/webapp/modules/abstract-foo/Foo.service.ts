@@ -1,4 +1,4 @@
-import { Injectable } from './ui5-di/Injector';
+import { Injectable } from 'ui5-di';
 
 @Injectable()
 export abstract class FooService {
