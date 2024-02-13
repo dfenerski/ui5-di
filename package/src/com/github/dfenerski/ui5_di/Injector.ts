@@ -110,7 +110,7 @@ class Injector {
         const isFactoryOnly = ReflectUtil.getIsFactoryOnly(dependencyClass);
         // Ensure a dependency factory is indeed provided
         if (isFactoryOnly && !dependencyFactory) {
-            throw E_INJECTOR_NO_DEPENDENCY_FACTORY;
+            throw new Error(E_INJECTOR_NO_DEPENDENCY_FACTORY);
         }
         // Retrieve the constructor parameter types
         const nestedDependencyClasses =

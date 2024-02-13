@@ -19,7 +19,7 @@ export class DIContainer {
         const dependencyWraplet = this._registry.get(injectionToken);
         // Abort if requested dependency wraplet could not be found
         if (!dependencyWraplet) {
-            throw E_DI_CONTAINER_NO_WRAPLET;
+            throw new Error(E_DI_CONTAINER_NO_WRAPLET);
         }
         //
         return <IDependencyWraplet<T>>dependencyWraplet;

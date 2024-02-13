@@ -17,6 +17,5 @@ export type InjectionToken<T extends object> =
 export type Nullable<T> = T | null;
 
 // ERRORS
-export const E_INJECTOR_NO_DEPENDENCY_FACTORY = new Error(
-    'Factory-only dependency must be instantiated via a factory function but none was provided',
-);
+export const E_INJECTOR_NO_DEPENDENCY_FACTORY =
+    'Factory-only dependency must be instantiated via a factory function but none was provided';

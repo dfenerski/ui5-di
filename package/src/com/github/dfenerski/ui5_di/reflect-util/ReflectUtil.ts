@@ -19,7 +19,7 @@ export class ReflectUtil {
         );
         // Abort if no token was found
         if (!injectionToken) {
-            throw E_REFLECT_UTIL_NO_DI_TOKEN;
+            throw new Error(E_REFLECT_UTIL_NO_DI_TOKEN);
         }
         //
         return injectionToken;
