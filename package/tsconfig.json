@@ -22,9 +22,5 @@
             ]
         }
     },
-    "include": ["./src/**/*", "./test/**/*"],
-    "ts-node": {
-        "esm": true,
-        "experimentalSpecifierResolution": "node"
-    }
+    "include": ["./src/**/*", "./test/**/*"]
 }
