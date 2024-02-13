@@ -1,0 +1,17 @@
+{
+    "name": "ui5-di-sandbox",
+    "version": "0.0.0",
+    "description": "",
+    "scripts": {
+        "sync": "rm -rf ./ui5-di && cp -r ../../package/src/com/github/dfenerski/ui5_di/ ./ui5-di && rm ./ui5-di/library.ts && rm ./ui5-di/.library",
+        "test": "node --no-warnings=ExperimentalWarning --loader ts-node/esm"
+    },
+    "author": "Dimitar Fenerski",
+    "type": "module",
+    "license": "Apache-2.0",
+    "dependencies": {
+        "reflect-metadata": "^0.2.0",
+        "ts-node": "^10.9.2",
+        "typescript": "^5.3.3"
+    }
+}
