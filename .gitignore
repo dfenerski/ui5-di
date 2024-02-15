@@ -1,6 +1,7 @@
 # Build results
 dist
 coverage
+!package/dist
 
 # Logs
 logs

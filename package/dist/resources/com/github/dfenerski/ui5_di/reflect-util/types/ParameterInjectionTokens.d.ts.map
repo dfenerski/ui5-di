@@ -1,0 +1,1 @@
+{"version":3,"file":"ParameterInjectionTokens.d.ts","sourceRoot":"..\\..\\..\\..\\..\\..\\..\\..","sources":["src\\com\\github\\dfenerski\\ui5_di\\reflect-util\\types\\ParameterInjectionTokens.ts"],"names":[],"mappings":"AAAA,OAAO,QAAQ,yEAAyE,CAAC;IACzF,OAAO,KAAK,EAAE,cAAc,EAAE,MAAM,kCAAkC,CAAC;IAEvE,KAAY,wBAAwB,GAAG,MAAM,CAAC,MAAM,EAAE,cAAc,CAAC,MAAM,CAAC,CAAC,CAAC;CAE7E"}

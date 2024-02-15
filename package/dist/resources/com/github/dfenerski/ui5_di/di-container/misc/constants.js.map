@@ -1,0 +1,1 @@
+{"version":3,"file":"constants.js","names":["sap","ui","define","Precedence","Object","freeze","DEFAULT","FINAL","__exports","__esModule"],"sources":["constants-dbg.js"],"mappings":"AAAAA,IAAIC,GAAGC,OAAO,GAAI,WAChB,aAEA,MAAMC,EAAaC,OAAOC,OAAO,CAC/BC,QAAS,EACTC,MAAO,MAET,IAAIC,EAAY,CACdC,WAAY,MAEdD,EAAUL,WAAaA,EACvB,OAAOK,CACT"}

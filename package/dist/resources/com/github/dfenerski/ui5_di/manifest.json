@@ -1,0 +1,35 @@
+{
+  "_version": "1.21.0",
+  "sap.app": {
+    "id": "com.github.dfenerski.ui5_di",
+    "type": "library",
+    "embeds": [],
+    "applicationVersion": {
+      "version": "0.0.5"
+    },
+    "title": "com.github.dfenerski.ui5_di",
+    "description": "A package for ui5 development at warp speed",
+    "resources": "resources.json",
+    "offline": true
+  },
+  "sap.ui": {
+    "technology": "UI5",
+    "supportedThemes": []
+  },
+  "sap.ui5": {
+    "dependencies": {
+      "minUI5Version": "1.120",
+      "libs": {}
+    },
+    "library": {
+      "i18n": false,
+      "css": false,
+      "content": {
+        "controls": [],
+        "elements": [],
+        "types": [],
+        "interfaces": []
+      }
+    }
+  }
+}

@@ -1,0 +1,1 @@
+{"version":3,"file":"constants.d.ts","sourceRoot":"..\\..\\..\\..\\..\\..\\..\\..","sources":["src\\com\\github\\dfenerski\\ui5_di\\injector-util\\misc\\constants.ts"],"names":[],"mappings":"AAAA,OAAO,QAAQ,0DAA0D,CAAC;IAC1E,OAAO,KAAK,EAAE,gCAAgC,IAAI,IAAI,EAAE,MAAM,kFAAkF,CAAC;IAE1I,MAAM,4BAA4B;;;;MAIvC,CAAC;IACI,MAAM,gCAAgC,EAAE,IAAI,EAElD,CAAC;CAED"}

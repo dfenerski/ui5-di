@@ -1,0 +1,2 @@
+sap.ui.define([],function(){"use strict";const e=Object.freeze({POLYMORPHIC:"POLYMORPHIC",DISCRETE:"DISCRETE",EXPLICIT:"EXPLICIT"});const t=Object.values(e);var n={__esModule:true};n.DependencyResolutionStrategy=e;n.DependencyResolutionStrategyList=t;return n});
+//# sourceMappingURL=constants.js.map
