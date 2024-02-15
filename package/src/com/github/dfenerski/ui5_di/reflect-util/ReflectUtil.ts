@@ -4,6 +4,7 @@ import type { ParameterInjectionTokens } from './types/ParameterInjectionTokens'
 
 /**
  * Convenience adapter for the Reflect API.
+ * All metadata is set & retrieved from concrete object, ignoring prototype chain. This helps to avoid unexpected behavior when using inheritance.
  */
 export class ReflectUtil {
     /**
@@ -13,7 +14,7 @@ export class ReflectUtil {
     public static getInjectionToken<T extends object>(
         dependencyClass: Class<T>,
     ): InjectionToken<T> {
-        const injectionToken = Reflect.getMetadata(
+        const injectionToken = Reflect.getOwnMetadata(
             'ui5di:injectionToken',
             dependencyClass,
         );
@@ -29,7 +30,7 @@ export class ReflectUtil {
         dependencyClass: Class<T>,
     ): ParameterInjectionTokens {
         return (
-            Reflect.getMetadata(
+            Reflect.getOwnMetadata(
                 'ui5di:parameterInjectionTokens',
                 dependencyClass,
             ) || {}
@@ -39,19 +40,21 @@ export class ReflectUtil {
     public static getParameterTypes<T extends object>(
         dependencyClass: Class<T>,
     ): Class<object>[] {
-        return Reflect.getMetadata('design:paramtypes', dependencyClass) || [];
+        return (
+            Reflect.getOwnMetadata('design:paramtypes', dependencyClass) || []
+        );
     }
 
     public static getPrecedence<T extends object>(
         dependencyClass: Class<T>,
     ): number | undefined {
-        return Reflect.getMetadata('ui5di:precedence', dependencyClass);
+        return Reflect.getOwnMetadata('ui5di:precedence', dependencyClass);
     }
 
     public static getIsFactoryOnly<T extends object>(
         dependencyClass: Class<T>,
     ): boolean | undefined {
-        return Reflect.getMetadata('ui5di:isFactoryOnly', dependencyClass);
+        return Reflect.getOwnMetadata('ui5di:isFactoryOnly', dependencyClass);
     }
 
     /**
