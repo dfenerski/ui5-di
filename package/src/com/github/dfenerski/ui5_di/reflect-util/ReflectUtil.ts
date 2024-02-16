@@ -29,15 +29,45 @@ export class ReflectUtil {
     public static getParameterInjectionTokens<T extends object>(
         dependencyClass: Class<T>,
     ): ParameterInjectionTokens {
-        return (
+        // Collect current instance type annotations if any
+        const ownParameterTypes = this.getOwnParameterTypes(dependencyClass);
+        // Get inherited annotations
+        const metadata: ParameterInjectionTokens =
+            Reflect.getMetadata(
+                'ui5di:parameterInjectionTokens',
+                dependencyClass,
+            ) || {};
+        // Get own annotations
+        const ownMetadata: ParameterInjectionTokens =
             Reflect.getOwnMetadata(
                 'ui5di:parameterInjectionTokens',
                 dependencyClass,
-            ) || {}
+            ) || {};
+        // Merge annotations into a new object:
+        // 1. Preserve inherited ones, so constructors of super classes inherit base class annotations
+        // 2. Overwrite with own ones, so constructors of super classes decide the injection tokens
+        // 3. Remove inherited annotations for non-decorated params so super class constructors don't get polluted from the inheritance
+        const parameterInjectionTokens = Object.assign(
+            {},
+            metadata,
+            ownMetadata,
         );
+        for (let i = 0; i < ownParameterTypes.length; i++) {
+            if (ownParameterTypes[i] && !ownMetadata[i]) {
+                delete parameterInjectionTokens[i];
+            }
+        }
+        // Return resolved injection tokens
+        return parameterInjectionTokens;
     }
 
     public static getParameterTypes<T extends object>(
+        dependencyClass: Class<T>,
+    ): Class<object>[] {
+        return Reflect.getMetadata('design:paramtypes', dependencyClass) || [];
+    }
+
+    private static getOwnParameterTypes<T extends object>(
         dependencyClass: Class<T>,
     ): Class<object>[] {
         return (
