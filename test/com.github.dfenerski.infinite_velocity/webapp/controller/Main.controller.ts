@@ -12,6 +12,7 @@ import { FooConsumerService } from '../modules/foo-consumer/FooConsumer.service'
 import { LazyUtilService } from '../modules/lazy-util/LazyUtil.service';
 import { MessageService } from '../modules/message/Message.service';
 import { SuperService } from '../modules/metadata-prototype-chain-leakage/Super.service';
+import { ParamTokens } from '../modules/param-tokens/ParamTokens.service';
 import { UtilABConsumerService } from '../modules/util-ab-consumer/Util1Consumer.service';
 import BaseController from './BaseController';
 
@@ -27,6 +28,7 @@ export default class Main extends BaseController {
     private readonly appModel2 = settle<AppStateService>(APP_INSTANCE_2);
     private readonly utilABConsumer = settleLazy(UtilABConsumerService);
     private readonly superService = settleLazy(SuperService);
+    private readonly paramTokens = settleLazy(ParamTokens);
 
     public override onInit(): void {
         const [lazyUtilService, cb] = settleLazy(LazyUtilService);
@@ -72,5 +74,9 @@ export default class Main extends BaseController {
 
     public showResult8(): void {
         MessageBox.show(this.superService[1]().getSuperMessage());
+    }
+
+    public showResult9(): void {
+        MessageBox.show(this.paramTokens[1]().getMessage());
     }
 }

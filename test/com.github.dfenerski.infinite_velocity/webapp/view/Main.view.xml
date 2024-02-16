@@ -33,6 +33,7 @@
                     <Button class="sapUiTinyMargin" text="Invoke Test 6" press="showResult6" />
                     <Button class="sapUiTinyMargin" text="Invoke Test 7" press="showResult7" />
                     <Button class="sapUiTinyMargin" text="Invoke Test 8" press="showResult8" />
+                    <Button class="sapUiTinyMargin" text="Invoke Test 9" press="showResult9" />
                 </HBox>
             </VBox>
         </content>
