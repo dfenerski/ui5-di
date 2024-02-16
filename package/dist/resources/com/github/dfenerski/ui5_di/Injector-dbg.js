@@ -33,7 +33,7 @@ sap.ui.define(["reflect-metadata/lite", "./di-container/DIContainer", "./di-cont
       const isFactoryOnly = ReflectUtil.getIsFactoryOnly(dependencyClass);
       // Retrieve the constructor parameter types
       const nestedDependencyClasses = ReflectUtil.getParameterTypes(dependencyClass);
-      // Recursively visit each nested dependencies, unless a factory will instantiate the dependency
+      // Recursively visit each nested dependency, unless a factory will instantiate it
       if (!isFactoryOnly) {
         nestedDependencyClasses.forEach(nestedDependencyClass => this.register(nestedDependencyClass));
       }

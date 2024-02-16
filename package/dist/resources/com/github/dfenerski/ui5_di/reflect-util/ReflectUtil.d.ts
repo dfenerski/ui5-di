@@ -12,6 +12,7 @@ declare module "com/github/dfenerski/ui5_di/reflect-util/ReflectUtil" {
         static getInjectionToken<T extends object>(dependencyClass: Class<T>): InjectionToken<T>;
         static getParameterInjectionTokens<T extends object>(dependencyClass: Class<T>): ParameterInjectionTokens;
         static getParameterTypes<T extends object>(dependencyClass: Class<T>): Class<object>[];
+        private static getOwnParameterTypes;
         static getPrecedence<T extends object>(dependencyClass: Class<T>): number | undefined;
         static getIsFactoryOnly<T extends object>(dependencyClass: Class<T>): boolean | undefined;
         /**

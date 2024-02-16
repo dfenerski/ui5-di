@@ -21,9 +21,29 @@ sap.ui.define(["./misc/errors"], function (___misc_errors) {
       return injectionToken;
     }
     static getParameterInjectionTokens(dependencyClass) {
-      return Reflect.getOwnMetadata('ui5di:parameterInjectionTokens', dependencyClass) || {};
+      // Collect current instance type annotations if any
+      const ownParameterTypes = this.getOwnParameterTypes(dependencyClass);
+      // Get inherited annotations
+      const metadata = Reflect.getMetadata('ui5di:parameterInjectionTokens', dependencyClass) || {};
+      // Get own annotations
+      const ownMetadata = Reflect.getOwnMetadata('ui5di:parameterInjectionTokens', dependencyClass) || {};
+      // Merge annotations into a new object:
+      // 1. Preserve inherited ones, so constructors of super classes inherit base class annotations
+      // 2. Overwrite with own ones, so constructors of super classes decide the injection tokens
+      // 3. Remove inherited annotations for non-decorated params so super class constructors don't get polluted from the inheritance
+      const parameterInjectionTokens = Object.assign({}, metadata, ownMetadata);
+      for (let i = 0; i < ownParameterTypes.length; i++) {
+        if (ownParameterTypes[i] && !ownMetadata[i]) {
+          delete parameterInjectionTokens[i];
+        }
+      }
+      // Return resolved injection tokens
+      return parameterInjectionTokens;
     }
     static getParameterTypes(dependencyClass) {
+      return Reflect.getMetadata('design:paramtypes', dependencyClass) || [];
+    }
+    static getOwnParameterTypes(dependencyClass) {
       return Reflect.getOwnMetadata('design:paramtypes', dependencyClass) || [];
     }
     static getPrecedence(dependencyClass) {
