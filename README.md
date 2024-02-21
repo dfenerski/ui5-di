@@ -19,8 +19,47 @@ This DI system has 2 peculiarities:
 Both points are (easily) managed through tools provided in this lib. While somewhat unique, this plays nice with the lazy evaluation of imports in the web environment & saves effort of implementing more complex tree-like scope management solution like in otheraforementioned frameworks.
 Additionally, due to the "2 phase" concept, you don't have to explicitly manage dependencies, like in popular libraries such as InversifyJS or similar. There, you'd have to explicitly call `.register` or similar method to define registration order & dependency pool. Here the exploratory phase of the system populates the virtual graph for you, dynamically resolving the hierarchy through the decorators.
 
-### Getting Started
+### Usage
 
-##### Install
+1. Install
 
 `npm install -D ui5-di`
+
+2. Add type mapping
+
+Add `ui5-di` to your tsconfig.json:
+
+```json
+        "paths": {
+            "ui5-di": [
+                "./node_modules/ui5-di/src/com/github/dfenerski/ui5_di/Injector"
+            ],
+        }
+```
+
+3. Decorate your service class
+
+```typescript
+import { Injectable } from 'ui5-di';
+
+@Injectable()
+export class UtilService {
+    public getUtilMessage(): string {
+        return 'Util service message';
+    }
+}
+```
+
+4. Use automatically resolved dependency tree in your controller
+
+```typescript
+export default class Main extends BaseController {
+    private readonly utilService = settle(UtilService);
+
+    public handleSomeEvent() {
+        MessageBox.show(this.utilService.getUtilMessage());
+    }
+}
+```
+
+For additional information refer to the sample app inside `/test`. App can be started using `npm run start` from inside its directory.
