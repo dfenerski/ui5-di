@@ -87,6 +87,15 @@ export class ReflectUtil {
         return Reflect.getOwnMetadata('ui5di:isFactoryOnly', dependencyClass);
     }
 
+    public static getIsSealedSettlement<T extends object>(
+        dependencyClass: Class<T>,
+    ): boolean | undefined {
+        return Reflect.getOwnMetadata(
+            'ui5di:isSealedSettlement',
+            dependencyClass,
+        );
+    }
+
     /**
      * SETTERS
      */
@@ -131,6 +140,17 @@ export class ReflectUtil {
         return Reflect.defineMetadata(
             'ui5di:isFactoryOnly',
             isFactoryOnly,
+            dependencyClass,
+        );
+    }
+
+    public static setIsSealedSettlement<T extends object>(
+        dependencyClass: Class<T>,
+        isSealedSettlement: boolean,
+    ) {
+        return Reflect.defineMetadata(
+            'ui5di:isSealedSettlement',
+            isSealedSettlement,
             dependencyClass,
         );
     }
