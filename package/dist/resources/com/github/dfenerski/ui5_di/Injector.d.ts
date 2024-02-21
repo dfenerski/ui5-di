@@ -18,6 +18,7 @@ declare module "com/github/dfenerski/ui5_di/Injector" {
         static Precedence<T extends object>(precedence: number): (dependencyClass: Class<T>) => void;
         static Final<T extends object>(): (dependencyClass: Class<T>) => void;
         static FactoryOnly<T extends object>(): (dependencyClass: Class<T>) => void;
+        static Seal<T extends object>(): (dependencyClass: Class<T>) => void;
     }
     /**
      * Export facade for convenience
@@ -30,6 +31,7 @@ declare module "com/github/dfenerski/ui5_di/Injector" {
     const Precedence: any;
     const Final: any;
     const FactoryOnly: any;
-    export { FactoryOnly, Final, Inject, Injectable, Precedence, dumpContainerInfo, settle, settleLazy, };
+    const Seal: any;
+    export { FactoryOnly, Final, Inject, Injectable, Precedence, Seal, dumpContainerInfo, settle, settleLazy, };
 }
 //# sourceMappingURL=Injector.d.ts.map

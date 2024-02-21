@@ -44,14 +44,20 @@ sap.ui.define(["reflect-metadata/lite", "./di-container/DIContainer", "./di-cont
       if (this._container.has(injectionToken)) {
         const {
           dependencyClass: existingDependencyClass,
+          dependencyInstance,
           precedence: extistingPrecedence
         } = this._container.get(injectionToken);
+        const isSealedSettlement = ReflectUtil.getIsSealedSettlement(existingDependencyClass);
         // Abort override if attempting to register the same dependency class for the same injection token
         if (existingDependencyClass === dependencyClass) {
           return;
         }
         // Abort if existing precedence is higher
         else if (extistingPrecedence > precedence) {
+          return;
+        }
+        // Abort if settlement is sealed
+        else if (isSealedSettlement && dependencyInstance) {
           return;
         }
       }
@@ -174,6 +180,11 @@ sap.ui.define(["reflect-metadata/lite", "./di-container/DIContainer", "./di-cont
         ReflectUtil.setIsFactoryOnly(dependencyClass, true);
       };
     }
+    static Seal() {
+      return function (dependencyClass) {
+        ReflectUtil.setIsSealedSettlement(dependencyClass, true);
+      };
+    }
   }
 
   /**
@@ -187,6 +198,7 @@ sap.ui.define(["reflect-metadata/lite", "./di-container/DIContainer", "./di-cont
   const Precedence = Injector.Precedence.bind(Injector);
   const Final = Injector.Final.bind(Injector);
   const FactoryOnly = Injector.FactoryOnly.bind(Injector);
+  const Seal = Injector.Seal.bind(Injector);
   var __exports = {
     __esModule: true
   };
@@ -195,6 +207,7 @@ sap.ui.define(["reflect-metadata/lite", "./di-container/DIContainer", "./di-cont
   __exports.Inject = Inject;
   __exports.Injectable = Injectable;
   __exports.Precedence = Precedence;
+  __exports.Seal = Seal;
   __exports.dumpContainerInfo = dumpContainerInfo;
   __exports.settle = settle;
   __exports.settleLazy = settleLazy;

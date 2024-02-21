@@ -64,14 +64,22 @@ class Injector {
         if (this._container.has(injectionToken)) {
             const {
                 dependencyClass: existingDependencyClass,
+                dependencyInstance,
                 precedence: extistingPrecedence,
             } = this._container.get(injectionToken);
+            const isSealedSettlement = ReflectUtil.getIsSealedSettlement(
+                existingDependencyClass,
+            );
             // Abort override if attempting to register the same dependency class for the same injection token
             if (existingDependencyClass === dependencyClass) {
                 return;
             }
             // Abort if existing precedence is higher
             else if (extistingPrecedence > precedence) {
+                return;
+            }
+            // Abort if settlement is sealed
+            else if (isSealedSettlement && dependencyInstance) {
                 return;
             }
         }
@@ -231,6 +239,12 @@ class Injector {
             ReflectUtil.setIsFactoryOnly(dependencyClass, true);
         };
     }
+
+    public static Seal<T extends object>() {
+        return function (dependencyClass: Class<T>) {
+            ReflectUtil.setIsSealedSettlement(dependencyClass, true);
+        };
+    }
 }
 
 /**
@@ -244,6 +258,7 @@ const Injectable = Injector.Injectable.bind(Injector);
 const Precedence = Injector.Precedence.bind(Injector);
 const Final = Injector.Final.bind(Injector);
 const FactoryOnly = Injector.FactoryOnly.bind(Injector);
+const Seal = Injector.Seal.bind(Injector);
 
 export {
     FactoryOnly,
@@ -251,6 +266,7 @@ export {
     Inject,
     Injectable,
     Precedence,
+    Seal,
     dumpContainerInfo,
     settle,
     settleLazy,

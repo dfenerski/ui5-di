@@ -52,6 +52,9 @@ sap.ui.define(["./misc/errors"], function (___misc_errors) {
     static getIsFactoryOnly(dependencyClass) {
       return Reflect.getOwnMetadata('ui5di:isFactoryOnly', dependencyClass);
     }
+    static getIsSealedSettlement(dependencyClass) {
+      return Reflect.getOwnMetadata('ui5di:isSealedSettlement', dependencyClass);
+    }
 
     /**
      * SETTERS
@@ -68,6 +71,9 @@ sap.ui.define(["./misc/errors"], function (___misc_errors) {
     }
     static setIsFactoryOnly(dependencyClass, isFactoryOnly) {
       return Reflect.defineMetadata('ui5di:isFactoryOnly', isFactoryOnly, dependencyClass);
+    }
+    static setIsSealedSettlement(dependencyClass, isSealedSettlement) {
+      return Reflect.defineMetadata('ui5di:isSealedSettlement', isSealedSettlement, dependencyClass);
     }
   }
   var __exports = {
