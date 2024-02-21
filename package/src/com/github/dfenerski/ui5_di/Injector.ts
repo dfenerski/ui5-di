@@ -60,20 +60,18 @@ class Injector {
         // Retrieve metadata
         const injectionToken = ReflectUtil.getInjectionToken(dependencyClass);
         const precedence = ReflectUtil.getPrecedence(dependencyClass)!;
-        // Abort if existing precedence is higher
+        // Check whether current registration would override an existing one
         if (this._container.has(injectionToken)) {
             const {
-                dependencyClass,
-                dependencyInstance,
+                dependencyClass: existingDependencyClass,
                 precedence: extistingPrecedence,
             } = this._container.get(injectionToken);
-            const isFactoryOnly = ReflectUtil.getIsFactoryOnly(dependencyClass);
-            // Abort if existing precedence is higher
-            if (extistingPrecedence > precedence) {
+            // Abort override if attempting to register the same dependency class for the same injection token
+            if (existingDependencyClass === dependencyClass) {
                 return;
             }
-            // Abort if factory only dependency has already been settled
-            else if (isFactoryOnly && dependencyInstance) {
+            // Abort if existing precedence is higher
+            else if (extistingPrecedence > precedence) {
                 return;
             }
         }
