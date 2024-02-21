@@ -234,9 +234,12 @@ class Injector {
         };
     }
 
-    public static FactoryOnly<T extends object>() {
+    public static FactoryOnly<T extends object>(params?: { seal: boolean }) {
         return function (dependencyClass: Class<T>) {
             ReflectUtil.setIsFactoryOnly(dependencyClass, true);
+            if (params?.seal) {
+                ReflectUtil.setIsSealedSettlement(dependencyClass, true);
+            }
         };
     }
 
