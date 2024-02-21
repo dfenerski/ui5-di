@@ -5,6 +5,6 @@
     <version>0.0.8</version>
     <copyright>${copyright}</copyright>
     <title>com.github.dfenerski.ui5_di</title>
-    <documentation>A package for ui5 development at warp speed</documentation>
+    <documentation>Dependency Injection library for SAPUI5 / OpenUI5</documentation>
     <dependencies></dependencies>
 </library>

@@ -1,7 +1,7 @@
 {
     "name": "ui5-di",
     "version": "0.0.8",
-    "description": "A package for ui5 development at warp speed",
+    "description": "Dependency Injection library for SAPUI5 / OpenUI5",
     "author": "Dimitar Fenerski",
     "license": "Apache-2.0",
     "keywords": [
