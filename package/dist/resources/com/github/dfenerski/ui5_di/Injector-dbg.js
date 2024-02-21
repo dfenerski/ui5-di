@@ -175,9 +175,12 @@ sap.ui.define(["reflect-metadata/lite", "./di-container/DIContainer", "./di-cont
         ReflectUtil.setPrecedence(dependencyClass, P.FINAL);
       };
     }
-    static FactoryOnly() {
+    static FactoryOnly(params) {
       return function (dependencyClass) {
         ReflectUtil.setIsFactoryOnly(dependencyClass, true);
+        if (params?.seal) {
+          ReflectUtil.setIsSealedSettlement(dependencyClass, true);
+        }
       };
     }
     static Seal() {

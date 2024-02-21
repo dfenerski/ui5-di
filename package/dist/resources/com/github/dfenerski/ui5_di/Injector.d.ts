@@ -17,7 +17,9 @@ declare module "com/github/dfenerski/ui5_di/Injector" {
         static Injectable<T extends object>(drsOrInjectionToken?: DRST | PrimitiveInjectionToken): (dependencyClass: Class<T>) => void;
         static Precedence<T extends object>(precedence: number): (dependencyClass: Class<T>) => void;
         static Final<T extends object>(): (dependencyClass: Class<T>) => void;
-        static FactoryOnly<T extends object>(): (dependencyClass: Class<T>) => void;
+        static FactoryOnly<T extends object>(params?: {
+            seal: boolean;
+        }): (dependencyClass: Class<T>) => void;
         static Seal<T extends object>(): (dependencyClass: Class<T>) => void;
     }
     /**
