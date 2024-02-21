@@ -2,7 +2,7 @@
 <library xmlns="http://www.sap.com/sap.ui.library.xsd">
     <name>com.github.dfenerski.ui5_di</name>
     <vendor>Dimitar Fenerski</vendor>
-    <version>0.0.5</version>
+    <version>0.0.7</version>
     <copyright>${copyright}</copyright>
     <title>com.github.dfenerski.ui5_di</title>
     <documentation>A package for ui5 development at warp speed</documentation>
