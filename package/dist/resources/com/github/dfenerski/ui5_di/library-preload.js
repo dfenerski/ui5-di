@@ -25,7 +25,7 @@ sap.ui.require.preload({
 	"com/github/dfenerski/ui5_di/injector-util/types/DependencyResolutionStrategyType.js":function(){
 
 },
-	"com/github/dfenerski/ui5_di/manifest.json":'{"_version":"1.21.0","sap.app":{"id":"com.github.dfenerski.ui5_di","type":"library","embeds":[],"applicationVersion":{"version":"0.0.10"},"title":"com.github.dfenerski.ui5_di","description":"Dependency Injection library for SAPUI5 / OpenUI5","resources":"resources.json","offline":true},"sap.ui":{"technology":"UI5","supportedThemes":[]},"sap.ui5":{"dependencies":{"minUI5Version":"1.120","libs":{}},"library":{"i18n":false,"css":false,"content":{"controls":[],"elements":[],"types":[],"interfaces":[]}}}}',
+	"com/github/dfenerski/ui5_di/manifest.json":'{"_version":"1.21.0","sap.app":{"id":"com.github.dfenerski.ui5_di","type":"library","embeds":[],"applicationVersion":{"version":"0.0.11"},"title":"com.github.dfenerski.ui5_di","description":"Dependency Injection library for SAPUI5 / OpenUI5","resources":"resources.json","offline":true},"sap.ui":{"technology":"UI5","supportedThemes":[]},"sap.ui5":{"dependencies":{"minUI5Version":"1.120","libs":{}},"library":{"i18n":false,"css":false,"content":{"controls":[],"elements":[],"types":[],"interfaces":[]}}}}',
 	"com/github/dfenerski/ui5_di/reflect-util/types/ParameterInjectionTokens.js":function(){
 
 }
