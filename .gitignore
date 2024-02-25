@@ -18,3 +18,5 @@ node_modules/
 
 # Artificially synced source files
 test/sandbox/ui5-di
+
+.obsidian

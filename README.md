@@ -1,53 +1,38 @@
 # Dependency Injection library for SAPUI5 / OpenUI5
 
-Unlock true warp speed development.
+# Intro
 
-### Features
+Dependency Injection (DI) revolutionizes code architecture by separating object creation from business logic. This powerful pattern boosts modularity, eases testing, and increases scalability. Championed by leading frameworks like Angular and Spring, DI is a proven strategy for building cleaner, more maintainable software.
 
--   no modules, manage through decorators
-    -   maybe easier to manage? you just control stuff through decorators, no need to create dedicated scopes
--   lazy loads imports, evaluates them only when settle is requested
--   no explicit registration / coupling is done
--   dependency pool can lasily expand when you import new stuff
+`ui5-di` is a lightweight, yet robust dependency injection library created for use inside SAPUI5 / OpenUI5, enabling developers to simplify the management of dependencies within their applications. It has seamless integration, offering a more intuitive and decoupled approach to handling service and component dependencies, thus promoting cleaner code, improved maintainability, and scalability. 
 
-### Usage
+# Features
 
-1. Install
+- No explicit dependency registration / no coupling file
+- Lazy hydration / late binding to class instances, delaying heavy object instantiation until needed
+- Lazy registration: dependencies are evaluated only on file import 
+- Simple usage: often annotating classes with `@Injectable` is enough 
 
-`npm install ui5-di`
 
-2. Setup compiler options
+# Setup
 
-Enable `experimentalDecorators`, `emitDecoratorMetadata` & `verbatimModuleSyntax` in your `tsconfig.json`
-
-```json
+1. Install: `npm install ui5-di`
+2. Setup `tsconfig.json` as follows:
+```typescript
 {
     "compilerOptions": {
         "experimentalDecorators": true,
         "emitDecoratorMetadata": true,
-        "verbatimModuleSyntax": true
-    }
-}
-```
-
-3. Add type mapping
-
-Add `ui5-di` to your `tsconfig.json`:
-
-```json
-    "compilerOptions": {
+        "verbatimModuleSyntax": true,
         "paths": {
             "ui5-di": [
                 "./node_modules/ui5-di/src/com/github/dfenerski/ui5_di/Injector"
             ],
         }
-    },
+    }
+}
 ```
-
-4. Add Babel configuration
-
-If you don't have one, add the following `.babelrc.json` configuration to your project. The UI5 Tooling will automatically pick this up.
-
+3. Add `.babelrc.json` 
 ```json
 {
     "ignore": ["**/*.d.ts"],
@@ -68,7 +53,9 @@ If you don't have one, add the following `.babelrc.json` configuration to your p
 }
 ```
 
-5. Decorate your service class
+# Usage
+
+### 1. Annotate your service layer classes
 
 ```typescript
 import { Injectable } from 'ui5-di';
@@ -81,21 +68,42 @@ export class UtilService {
 }
 ```
 
-6. Use automatically resolved dependency tree in your controller
-
 ```typescript
-export default class Main extends BaseController {
-    private readonly utilService = settle(UtilService);
+import { Injectable } from 'ui5-di';
 
-    public handleSomeEvent() {
-        MessageBox.show(this.utilService.getUtilMessage());
+@Injectable()
+export class BusinessService {
+	constructor(
+		private readonly utliService: UtilService // <- automatically instantiated!
+	){}
+
+    public getMessage(): string {
+        return 'Business: ' + this.utilService.getUtilMessage();
     }
 }
 ```
 
-For additional information refer to the sample app inside `/test`. App can be started using `npm run start` from inside its directory.
+### 2. Hydrate your controllers
 
-### Technical
+
+```typescript
+import { BusinessService } from '../services/BusinessService'
+
+// ...
+
+export default class Main extends BaseController {
+    private readonly businessService = settle(BusinessService);
+
+    public handleSomeEvent() {
+        MessageBox.show(this.businessService.getMessage());
+    }
+}
+```
+
+
+For more examples, please refer to the demo app inside `/test/com.github.dfenerski.infinite_velocity`
+
+# Technical
 
 This DI system has 2 peculiarities:
 
@@ -105,3 +113,15 @@ This DI system has 2 peculiarities:
 
 Both points are (easily) managed through tools provided in this lib. While somewhat unique, this plays nice with the lazy evaluation of imports in the web environment & saves effort of implementing more complex tree-like scope management solution like in the mentioned frameworks.
 Additionally, due to the "2 phase" concept, you don't have to explicitly manage dependencies, like in popular libraries such as InversifyJS or similar. There, you'd have to explicitly call `.register` or similar method to define registration order & dependency pool. Here the exploratory phase of the system populates the virtual graph for you, dynamically resolving the hierarchy through the decorators.
+
+
+# Notes
+
+### Contributions
+
+PRs/Issues/Discussions welcome! You can also always reach me on twitter or linkedin.
+
+### License
+
+This project is licensed under the Apache Software License, version 2.0 except as noted otherwise in the [LICENSE](LICENSE) file.
+
