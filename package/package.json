@@ -1,6 +1,6 @@
 {
     "name": "ui5-di",
-    "version": "0.0.11",
+    "version": "0.0.12",
     "description": "Dependency Injection library for SAPUI5 / OpenUI5",
     "author": "Dimitar Fenerski",
     "license": "Apache-2.0",
@@ -49,5 +49,10 @@
         "@babel/plugin-proposal-decorators": "^7.23.9",
         "babel-plugin-transform-typescript-metadata": "^0.3.2",
         "reflect-metadata": "^0.2.1"
+    },
+    "homepage": "https://github.com/dfenerski/ui5-di/blob/master/README.md",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/dfenerski/ui5-di.git"
     }
 }
