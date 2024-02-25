@@ -1,6 +1,6 @@
 {
     "name": "ui5-di",
-    "version": "0.0.9",
+    "version": "0.0.10",
     "description": "Dependency Injection library for SAPUI5 / OpenUI5",
     "author": "Dimitar Fenerski",
     "license": "Apache-2.0",
@@ -23,7 +23,8 @@
         "karma-ci": "karma start karma-ci.conf.js",
         "karma-ci-cov": "karma start karma-ci-cov.conf.js",
         "test": "npm run lint && npm run karma-ci-cov",
-        "test:bare": "node --no-warnings=ExperimentalWarning --loader ts-node/esm"
+        "test:bare": "node --no-warnings=ExperimentalWarning --loader ts-node/esm",
+        "prepublish": "npm run build && cp ../README.md ."
     },
     "devDependencies": {
         "@openui5/types": "1.120.7",
