@@ -237,7 +237,7 @@ class Injector {
     public static FactoryOnly<T extends object>(params?: { seal: boolean }) {
         return function (dependencyClass: Class<T>) {
             ReflectUtil.setIsFactoryOnly(dependencyClass, true);
-            if (params?.seal) {
+            if (params?.seal !== false) {
                 ReflectUtil.setIsSealedSettlement(dependencyClass, true);
             }
         };

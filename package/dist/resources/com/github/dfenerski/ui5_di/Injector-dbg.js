@@ -178,7 +178,7 @@ sap.ui.define(["reflect-metadata/lite", "./di-container/DIContainer", "./di-cont
     static FactoryOnly(params) {
       return function (dependencyClass) {
         ReflectUtil.setIsFactoryOnly(dependencyClass, true);
-        if (params?.seal) {
+        if (params?.seal !== false) {
           ReflectUtil.setIsSealedSettlement(dependencyClass, true);
         }
       };

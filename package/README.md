@@ -72,6 +72,7 @@ export class UtilService {
 
 ```typescript
 import { Injectable } from 'ui5-di';
+import { UtilService } from './Util.service';
 
 @Injectable()
 export class BusinessService {

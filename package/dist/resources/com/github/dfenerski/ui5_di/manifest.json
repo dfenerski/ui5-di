@@ -5,7 +5,7 @@
     "type": "library",
     "embeds": [],
     "applicationVersion": {
-      "version": "0.0.12"
+      "version": "0.0.13"
     },
     "title": "com.github.dfenerski.ui5_di",
     "description": "Dependency Injection library for SAPUI5 / OpenUI5",
