@@ -46,7 +46,7 @@ Dependency Injection (DI) revolutionizes code architecture by separating object 
             }
         ],
         "babel-plugin-transform-typescript-metadata",
-        ["@babel/plugin-proposal-decorators", { "legacy": true }]
+        ["@babel/plugin-proposal-decorators", { "version": "legacy" }]
     ],
     "presets": [
         ["transform-ui5", {}],
